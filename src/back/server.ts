@@ -11,8 +11,6 @@ import type { FastifyListenOptions }	from "fastify";
 import { wsGamePlugin }			from "./ws-game";
 import { PongBackEngine }		from "../scenes/PongBackScene";
 
-
-
 async function main() {
 	const appDir: string = fs.realpathSync(process.cwd());
 	const frontDir: string = "front";
