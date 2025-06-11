@@ -5,19 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pong and Chat</title>
   <style>
-    body {
-      margin: 0;
+	html, body {
+			height: 100%;
+			margin: 0;
+	}
+    /* body {
       height: 100vh;
       display: flex;
       font-family: monospace;
       background-color: pink;
-    }
+    } */
     .container {
       display: flex;
       width: 100%;
       height: 100%;
       background-color: pink;
     }
+	.div_main {
+	  width: 100%;
+      height: 100%;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: center;
+	  background-color: blue;	
+	}
     .left {
       background-color: pink;
       flex: 3;
@@ -139,13 +151,24 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <div style="position: absolute; top: 10px; left: 10px; z-index: 100;">
+  <div class="i18next" style="position: absolute; top: 10px; left: 10px; z-index: 100;">
+    <button class="lang-btn" data-lang="en">🇬🇧</button>
+    <button class="lang-btn" data-lang="cs">🇨🇿</button>
+    <button class="lang-btn" data-lang="ru">🇷🇺</button>
+    <button class="lang-btn" data-lang="de">🇩🇪</button>
+    <button class="lang-btn" data-lang="es">🇪🇸</button>
+    <button class="lang-btn" data-lang="zh">🇨🇳</button>
+  </div>
+  <div class="div_main" id="div_main">
+    <!-- текущее содержимое \ current content -->
+  </div>
+  <div class="container" id="div_container">
+    <!-- <div style="position: absolute; top: 10px; left: 10px; z-index: 100;">
       <button onclick="setLanguage('en')">🇬🇧</button>
       <button onclick="setLanguage('cz')">🇨🇿</button>
       <button onclick="setLanguage('es')">🇪🇸</button>
-    </div>
-    <div class="left">
+    </div> -->
+    <div class="left" id="div_game">
       <div class="game-container">
         <h1 class="text-2xl font-bold text-black mb-4">Fucking Pong</h1>
         <div id="gameButtons" style="margin-bottom: 12px;">
@@ -156,7 +179,7 @@
         <canvas id="pongCanvas" width="700%" height="500%"></canvas>
       </div>
     </div>
-    <div class="chat">
+    <div class="chat" id="div_chat">
       <div class="controls">
         <select id="recipient">
           <option value="all">All Players</option>
@@ -169,9 +192,11 @@
       <input type="text" id="input" class="input" placeholder="Type here..." />
     </div>
   </div>
+  <%= i18next %>
+  <%= login %>
   <%= chat %>
   <%= game %>
-<script>
+<!-- <script>
   const translations = {
     en: {
       title: "Fucking Pong",
@@ -221,7 +246,7 @@
   window.addEventListener("DOMContentLoaded", () => {
     setLanguage(currentLang);
   });
-</script>
+</script> -->
 
 </body>
 </html>
